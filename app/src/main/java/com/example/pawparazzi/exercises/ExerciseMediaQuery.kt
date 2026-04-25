@@ -32,7 +32,9 @@ import com.example.pawparazzi.ui.theme.LocalCustomColors
 @Composable
 fun FocusSample() {
     var lastSelected by remember { mutableStateOf(Tags.Home) }
-    val isKeyboardAttached = false // TODO Insert MediaQuery here
+    val isKeyboardAttached =  mediaQuery {
+        keyboardKind == UiMediaScope.KeyboardKind.Physical
+    }
 
     Text(
         text = "Focus sample", style = MaterialTheme.typography.bodyLarge,
